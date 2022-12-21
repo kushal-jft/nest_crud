@@ -3,9 +3,14 @@ import { personData } from 'src/person.data';
 import { Person } from 'src/interfaces/person.interface';
 import { UpdatePersonDTO } from '../dto/update_person.dto';
 import {v4 as uuid} from 'uuid';
+// import { User } from 'src/user.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AdminService {
+    // constructor(@InjectRepository(User) private usersRepository: Repository<User>){}
+
     findAll(): Person[] {
         return personData.filter(person => person.isAdmin === true);
     }
